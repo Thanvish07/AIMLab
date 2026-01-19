@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (!isDeleting && charIndex === currentText.length) {
-            typingSpeed = 2000; // Pause at end
+            typingSpeed = 2000;
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
@@ -44,7 +44,65 @@ document.addEventListener('DOMContentLoaded', function() {
     
     typeWriter();
 
-    // --- 2. Theme Switcher ---
+    // --- 2. Stats Counter Animation (New) ---
+    const counters = document.querySelectorAll('.stat-number');
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-count');
+            const speed = 200;
+            const updateCount = () => {
+                const count = +counter.innerText;
+                const inc = target / speed;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 20);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            updateCount();
+        });
+    };
+
+    const statsSection = document.querySelector('.hero-stats');
+    if (statsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) {
+                animateCounters();
+                observer.disconnect();
+            }
+        });
+        observer.observe(statsSection);
+    }
+
+    // --- 3. Gallery Logic (New) ---
+    const slides = document.querySelectorAll('.gallery-slide');
+    const nextBtn = document.querySelector('.gallery-next');
+    const prevBtn = document.querySelector('.gallery-prev');
+    let currentSlide = 0;
+
+    if(slides.length > 0) {
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            });
+        }
+
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            });
+        }
+    }
+
+    // --- 4. Theme Switcher ---
     const themeSwitch = document.getElementById('checkbox');
     const currentTheme = localStorage.getItem('theme');
 
@@ -67,26 +125,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 3. Mobile Menu ---
+    // --- 5. Mobile Menu ---
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     
     if (menuBtn) {
         menuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
             if(navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
                 navLinks.style.flexDirection = 'column';
                 navLinks.style.position = 'absolute';
                 navLinks.style.top = '70px';
                 navLinks.style.left = '0';
                 navLinks.style.width = '100%';
-                navLinks.style.background = 'var(--nav-bg)';
+                navLinks.style.background = getComputedStyle(document.documentElement).getPropertyValue('--nav-bg');
                 navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
             }
         });
     }
 
-    // --- 4. Network Graph Animation (Keeping this as it looks cool) ---
+    // --- 6. Network Graph ---
     initNetworkGraph();
 });
 
