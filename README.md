@@ -1,113 +1,125 @@
-# Urban Vision Hackathon Website
+# AIM-Lab Website | RBCCPS, IISc
 
-A modern, interactive website for the Urban Vision Hackathon - an AI-driven challenge to improve Indian traffic mobility through image annotation.
+The official website for the **Artificial Intelligence & Cyber-Physical Systems (AIM) Lab**, located at the Robert Bosch Centre for Cyber-Physical Systems (RBCCPS), Indian Institute of Science (IISc), Bangalore.
 
-![Urban Vision Hackathon Preview](/hack/assets/img/UI-1.jpg)
+This repository contains the source code for a modern, responsive, and interactive lab portfolio website designed to showcase research, publications, projects, and team members.
 
-## About the Project
+## 🚀 About the Lab
 
-The Urban Vision Hackathon website serves as the central hub for this innovative competition organized by IISc, supported by the Ministry of Education, AIRAWAT, and Bangalore Traffic Police. The hackathon aims to create India's largest annotated traffic image dataset through a gamified experience, ultimately contributing to smarter AI models for urban mobility.
+**AIM-Lab** focuses on the intersection of **Machine Learning**, **Internet of Things (IoT)**, and **Sustainability**. Led by **Prof. Pandarasamy Arjunan**, the lab aims to build data-driven solutions that solve real-world challenges in smart built environments, energy sustainability, and cyber-physical systems.
 
-## Features
+## ✨ Key Features
 
-- **Modern Design**: Responsive, accessible, and visually appealing interface with dark/light mode toggle
-- **Interactive Elements**: Animated sections, interactive cards, and smooth transitions
-- **Dynamic Content**: Typewriter effects, animated counters, and progress tracking
-- **Gamified Visualization**: Modern gallery with filmstrip carousel for game interface previews
-- **Comprehensive Information**: Detailed sections for rules, eligibility, prizes, and important dates
-- **Registration Flow**: Step-by-step registration process for both team leaders and members
-- **Media Integration**: Video player and poster showcase
-- **Partner Showcase**: Visual display of institutional partners
-- **Visual Effects**: Canvas-based network graph and particle animations
+* **Interactive Hero Section**: Features a canvas-based network graph animation, typewriter text effect, and animated statistic counters (Publications, Projects, Members).
+* **Theme System**: Native **Dark Mode** and **Light Mode** support with a toggle switch, using CSS variables for easy color management.
+* **Research Showcase**:
+    * **Themes Grid**: Highlighted research pillars (Data Science, Energy, IoT).
+    * **Methodologies**: Interactive grid showing core technical approaches.
+    * **Projects**: Visual cards with hover zoom effects for active projects.
+* **Publications**: Clean list layout with expandable `<details>` for abstracts and direct PDF links.
+* **Team Section**: Professional profile cards with side-by-side social links (Scholar, LinkedIn, GitHub, Email).
+* **Dynamic Elements**:
+    * **Timeline**: Vertical timeline for recent news and updates.
+    * **Gallery**: Filmstrip-style image gallery for lab facilities and life.
+    * **Interactive Image**: "Mission" section with dynamic border effects.
+* **Responsive Design**: Fully optimized for desktops, tablets, and mobile devices.
 
-## Technologies Used
+## 🛠️ Technologies Used
 
-- **HTML5**: Semantic markup structure
-- **CSS3**: Advanced styling with custom properties, flexbox, grid, and animations
-- **JavaScript**: Vanilla JS for interactive elements and animations
-- **Canvas API**: For network visualization and particle effects
-- **Responsive Design**: Mobile-first approach with media queries
-- **Remixicon**: Modern icon library
-- **Google Fonts**: Typography with Poppins font family
+* **HTML5**: Semantic structure.
+* **CSS3**: Custom properties (variables), Flexbox, CSS Grid, and advanced animations (keyframes, transitions).
+* **JavaScript (Vanilla)**:
+    * `IntersectionObserver` for scroll animations and counters.
+    * Canvas API for the network background.
+    * Local Storage for saving theme preferences.
+* **Icons**: RemixIcon, FontAwesome, and Academicons.
+* **Fonts**: Google Fonts (Poppins).
 
-## Project Structure
+## 📂 Project Structure
 
-```
-.
-├── README.md
-├── hack
-│   ├── assets
-│   │   ├── img
-│   │   │   ├── UI-1.png
-│   │   │   ├── UI-2.png
-│   │   │   ├── UI-3.png
-│   │   │   ├── acm-logo.png
-│   │   │   ├── airawat-logo.png
-│   │   │   ├── artpark.png
-│   │   │   ├── btp-logo.png
-│   │   │   ├── cds-logo.png
-│   │   │   ├── cistup-logo.png
-│   │   │   ├── cistup.png
-│   │   │   ├── dfpg-logo.png
-│   │   │   ├── game.png
-│   │   │   ├── ieee-logo.png
-│   │   │   ├── iisc-logo.jpg
-│   │   │   ├── main-theme-2.png
-│   │   │   ├── main-theme.png
-│   │   │   ├── main.jpeg
-│   │   │   ├── moe-logo.png
-│   │   │   ├── portal.png
-│   │   │   └── rbcbps-logo.png
-│   │   └── poster.png
-│   ├── index.html
-│   ├── main.jpeg
-│   ├── script.js
-│   └── styles.css
-└── index.html
+```text
+AIMLab/
+│
+├── index.html          # Main landing page (Single Page Application structure)
+├── styles.css          # Global styles, variables, and responsive media queries
+├── script.js           # Logic for animations, theme toggle, and UI interactions
+├── README.md           # Project documentation
+│
+├── assets/
+│   └── img/            # Images (Logos, Team photos, Project thumbnails, UI assets)
+│       ├── iisc-logo.png
+│       ├── anomaly.png
+│       ├── speaker_pandarasamy.jpg
+│       └── ...
 
-4 directories, 27 files
+## ⚙️ Setup & Usage
+
+Since this is a static website, it does not require a complex backend server. You can run it locally or host it on any static site provider (GitHub Pages, Netlify, Vercel).
+
+### 1. Cloning the Repository
+Open your terminal or command prompt and run:
+
+```bash
+git clone https://github.com/your-username/AIM-Lab-Website. git
+cd AIM-Lab-Website
 ```
 
-## Customization
+### 2. Running Locally
+You can simply double-click `index.html` to open it in your browser.
 
-### Modifying Content
+**Recommended Method (VS Code):**
 
-Most of the content can be updated directly in the `index.html` file:
-- Update text within appropriate tags
-- Replace images by changing src attributes
-- Modify dates in the timeline section
+1. Open the folder in VS Code. 
+2. Install the Live Server extension.
+3. Right-click `index.html` and select "Open with Live Server".
 
-### Styling Changes
+This ensures all assets, fonts, and scripts load correctly without CORS issues.
 
-The website uses CSS variables defined at the top of `styles.css`, making it easy to update the color scheme:
+## 🎨 Customization Guide
+
+### 1. Changing Colors
+The entire color scheme is managed via CSS variables at the top of `styles.css`.
 
 ```css
 :root {
-  --primary-color: #4361ee;
-  --secondary-color: #3a0ca3;
-  --accent-color: #7209b7;
-  --text-color: #2b2d42;
-  --background-color: #f8f9fa;
-  /* Additional variables... */
+  --primary: #4299e1;       /* Main Brand Blue */
+  --primary-dark: #3182ce;  /* Darker Blue for hover states */
+  --accent:  #ff4c29;        /* Accent Orange */
+  --bg-light: #f8fafc;      /* Light Mode Background */
+  /* ... */
 }
 ```
 
-## Contributing
+### 2. Updating Content
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- **News/Updates**: Edit the HTML under the `<section id="updates">` tag in `index.html`.
 
+- **Stats Counters**: Update the numbers in the Hero section by changing the `data-count` attribute:
 
-## Contact
+```html
+<div class="hero-stat-number stat-number" data-count="50">0</div>
+```
 
-airawat.mobility@iisc.ac.in
+- **Typewriter Text**: Edit the `typewriterTexts` array in `script.js` to change the rotating text in the hero section:
 
-## Acknowledgements
+```javascript
+const typewriterTexts = [
+    "Machine Learning",
+    "Internet of Things",
+    "Sustainability"
+];
+```
 
-- IISc Bangalore
-- Ministry of Education, India
-- AIRAWAT
-- Bangalore Traffic Police
+### 3. Adding Publications
+To add a new publication, copy the existing `.pub-card` HTML block in `index.html` and paste it within the `.publications-wrapper` div.
+
+## 📬 Contact
+
+**Prof. Pandarasamy Arjunan**
+
+- **Email**: samy@iisc.ac.in
+- **Address**: Room No: 215, IDR Building, RBCCPS, IISc, Bangalore - 560012.
+
+## 📄 License
+
+© 2026 AIM-Lab, Indian Institute of Science. All rights reserved. 
