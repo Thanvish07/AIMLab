@@ -9,10 +9,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  # ADD THIS SECTION
-  schedule:
+  # schedule:
     # Runs every 30 minutes
-    - cron: '*/30 * * * *'
+    # - cron: '*/30 * * * *'
 
     # OPTIONAL: If you want it to run ONLY on a specific date (e.g., Jan 27th)
     # use this format instead: '*/30 * 27 1 *' 
