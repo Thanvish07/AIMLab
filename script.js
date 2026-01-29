@@ -1,4 +1,4 @@
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     
     // --- 1. Typewriter Effect ---
     const typewriterTexts = [
@@ -75,7 +75,7 @@
         observer.observe(statsSection);
     }
 
-    // --- 3. Gallery Logic (Fixed) ---
+    // --- 3. Gallery Logic ---
     const slides = document.querySelectorAll('.gallery-slide');
     const thumbs = document.querySelectorAll('.filmstrip-thumb');
     const nextBtn = document.querySelector('.gallery-next');
@@ -188,7 +188,7 @@
         });
     }
 
-    // --- 6. Network Graph (Fixed Visibility) ---
+    // --- 6. Network Graph ---
     initNetworkGraph();
 });
 
